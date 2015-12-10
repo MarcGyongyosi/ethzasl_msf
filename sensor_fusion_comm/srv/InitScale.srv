@@ -1,3 +1,4 @@
 float32 scale
+float32 scale_2
 ---
 string result

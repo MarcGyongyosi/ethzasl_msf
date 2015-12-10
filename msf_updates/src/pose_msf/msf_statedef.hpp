@@ -38,7 +38,12 @@ enum StateDefinition {  // Must not manually set the enum values!
   q_wv,
   p_wv,
   q_ic,
-  p_ic
+  p_ic,
+  L_2,
+  q_wv_2,
+  p_wv_2,
+  q_ic_2,
+  p_ic_2 
 };
 
 namespace {
@@ -64,9 +69,14 @@ typedef boost::fusion::vector<
     msf_core::StateVar_T<Eigen::Matrix<double, 1, 1>, L, msf_core::Auxiliary>,  ///< Visual scale.
     msf_core::StateVar_T<Eigen::Quaternion<double>, q_wv,
         msf_core::AuxiliaryNonTemporalDrifting>,  ///< Rotation from the world frame to the frame in which the pose is measured expressed in the world frame.
-    msf_core::StateVar_T<Eigen::Matrix<double, 3, 1>, p_wv>,  ///< Translation from the world frame to the frame in which the pose is measured expressed in the world frame.
+    msf_core::StateVar_T<Eigen::Matrix<double, 3, 1>, p_wv >,  ///< Translation from the world frame to the frame in which the pose is measured expressed in the world frame.
     msf_core::StateVar_T<Eigen::Quaternion<double>, q_ic>,  ///< Rotation from the IMU frame to the camera frame expressed in the IMU frame.
-    msf_core::StateVar_T<Eigen::Matrix<double, 3, 1>, p_ic>  ///< Translation from the IMU frame to the camera frame expressed in the IMU frame.
+    msf_core::StateVar_T<Eigen::Matrix<double, 3, 1>, p_ic>,  ///< Translation from the IMU frame to the camera frame expressed in the IMU frame.
+    msf_core::StateVar_T<Eigen::Matrix<double, 1, 1>, L_2, msf_core::Auxiliary>,  
+    msf_core::StateVar_T<Eigen::Quaternion<double>, q_wv_2, msf_core::AuxiliaryNonTemporalDrifting>,
+    msf_core::StateVar_T<Eigen::Matrix<double, 3, 1>, p_wv_2 >,
+    msf_core::StateVar_T<Eigen::Quaternion<double>, q_ic_2>,
+    msf_core::StateVar_T<Eigen::Matrix<double, 3, 1>, p_ic_2>  
 
 > fullState_T;
 }

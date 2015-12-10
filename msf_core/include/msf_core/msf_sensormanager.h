@@ -80,8 +80,8 @@ class MSF_SensorManager : public StateVisitor<EKFState_T> {
   /***
    * Init function for the EKF.
    */
-  virtual void Init(double scale) const = 0;
-
+  virtual void Init(double scale, double scale_2) const = 0;
+  
   /***
    * This method will be called for the user to set the initial state.
    */
